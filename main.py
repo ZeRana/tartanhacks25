@@ -2,6 +2,9 @@ import pygame
 import sys
 from pygame.locals import *
 
+# Snake case --> pygame builtin
+# Camel case --> our functions
+
 pygame.init()
 
 width = 400
