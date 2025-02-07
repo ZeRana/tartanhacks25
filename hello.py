@@ -1,5 +1,5 @@
 def main():
-    print("test")
+    print("max")
 
 
 if __name__ == "__main__":
