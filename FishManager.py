@@ -12,7 +12,7 @@ class FishManager:
             fish.move()
 
 
-    def drawFish(self, screen):
+    def draw(self, screen):
         for fish in self.fishList:
             fish.draw(screen)
 
