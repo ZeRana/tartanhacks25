@@ -51,13 +51,11 @@ def soundEffect(audio_file):
 
 handler = Events.EventHandler()
 background = SpriteSurface("background.png")
-fishImage = SpriteSurface("fish/clownfish.png")
-fish = Fish.Fish(fishImage)
-fish1 = Fish.Fish(fishImage)
+fishImage = SpriteSurface("clownfish.png")
 fishManager = FishManager.FishManager()
-fishManager.fishList.append(fish)
-fishManager.fishList.append(fish1)
-fishManager.setFishDeltaX(.2)
+for i in range(502):
+    fishManager.fishList.append(Fish.Fish(fishImage))
+fishManager.setFishDeltaX(5)
 
 def main():
     while True:

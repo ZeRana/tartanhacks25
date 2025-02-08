@@ -19,3 +19,4 @@ class Fish(GameObject):
         if (self.facingRight and self.x >= 975) or (not self.facingRight and self.x <= 15):
             self.facingRight = not self.facingRight
             self.deltaX *= -1
+            self.surface = pygame.transform.flip(self.surface, True, False)
