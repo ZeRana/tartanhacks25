@@ -5,6 +5,7 @@ from pygame import Surface
 
 class GameObject(Sprite):
     deltaTime = 1
+    shared = set()
     def __init__(self, surface):
         super().__init__()
         self.surface = surface

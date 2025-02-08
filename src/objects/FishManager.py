@@ -12,7 +12,7 @@ class FishManager(GameObject):
             fish.isClicked(x, y)
 
     def interacted(self, keys):
-        print(keys)
+        pass
 
     def moveFish(self):
         for fish in self.fishList:

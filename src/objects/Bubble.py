@@ -9,7 +9,6 @@ class Bubble(GameObject):
 
         self.y = 900
         self.x = random.randint(0, 1600)
-
         self.speed = random.uniform(.1, .5)
 
     def move(self):
@@ -25,3 +24,4 @@ class Bubble(GameObject):
     def interacted(self, event):
         if event == 'click':
             self.resetPos()
+            self.shared.add('bubble')

@@ -24,12 +24,6 @@ def quit_game():
             pygame.quit()
             sys.exit()
  
-mixer.music.load('music/fish_music_final.mp3')
-mixer.music.set_volume(0.5)
-mixer.music.play(-1)
-
-
-
 def main():
     clock = pygame.time.Clock()
     gameObjectsList = []
@@ -42,12 +36,13 @@ def main():
     SpriteSurface.rootPath = os.path.dirname(__file__)
 
     background = Background(SpriteSurface("backgrounds/newbackground.png"))
+    music = Music()
 
 
     while True:
         GameObject.deltaTime = clock.tick()
         screen.updateCoords()
-        gameObjectsList += [background, mode]
+        gameObjectsList += [background, mode, music]
         control.load()
 
         # events
