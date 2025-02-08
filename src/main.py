@@ -30,6 +30,12 @@ mixer.music.play(-1)
 
 
 
+mixer.music.load('music/fish_music_final.mp3')
+mixer.music.set_volume(0.5)
+mixer.music.play(-1)
+
+
+
 def main():
     clock = pygame.time.Clock()
     gameObjectsList = []
