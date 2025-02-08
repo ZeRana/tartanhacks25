@@ -23,3 +23,6 @@ class EventHandler:
                     sys.exit()
                 case pygame.KEYDOWN:
                     self.handleKeyPress()
+
+def pixels_to_coords(x, y):
+    return (x/SCREEN_X * 1000, y/SCREEN_Y * 1000)
