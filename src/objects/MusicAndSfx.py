@@ -22,19 +22,20 @@ class Music(GameObject):
     def draw(self, surface):
         pass
 
-    def isClicked(self, x, y):
-         pass
+class Sfx(GameObject):
 
-    # def action(self):
-    #     pass
+    def __init__(self, sfx):
+        mixer.music.load(sfx)
+        mixer.music.set_volume(0.7)
+
+    def playAudio(self, sfx):
+        mixer.music.play(sfx)
+
+    
         
-    # def draw(self):
-    #     pass
+#####
+###'bubble' = 'music/bubble-sound-43207.mp3' 
 
-    # def setPosition(self, x, y):
-    #     pass
-
-    # def checkOnScreen(self)
-    #     pass
+############
 
 
