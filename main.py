@@ -54,9 +54,9 @@ fishManager.fishList.append(fish1)
 fishManager.setFishDeltaX(90)
 =======
 background = SpriteSurface("background.png")
-fishImage = SpriteSurface("clownfish.png")
+fishImage = SpriteSurface("clownfish.png", width = 50, height = 50)
 fishManager = FishManager.FishManager()
-for i in range(502):
+for i in range(5):
     fishManager.fishList.append(Fish.Fish(fishImage))
 fishManager.setFishDeltaX(5)
 >>>>>>> main

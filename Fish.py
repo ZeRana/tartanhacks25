@@ -13,6 +13,7 @@ class Fish(GameObject):
 
     def move(self):
         self.x += (random.random() * self.deltaX)
+        self.y += (random.random() - .5) * 2
         self.turnAround()
 
     def turnAround(self):
