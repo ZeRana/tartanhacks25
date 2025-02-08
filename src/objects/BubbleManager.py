@@ -14,6 +14,7 @@ class BubbleManager(GameObject):
             bubble.draw(screen)
 
     def isClicked(self, x, y):
-        pass
+        for bubble in self.bubbles:
+            bubble.isClicked(x, y)
 
     

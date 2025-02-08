@@ -56,7 +56,7 @@ def main():
         bubbleManager.bubbles.append(Bubble(bubbleImage))
     for i in range(200):
         fishManager.fishList.append(Fish(fishImage))
-        fishManager.fishList.append(Fish(fishImage1))
+#        fishManager.fishList.append(Fish(fishImage1))
 
     gameObjectsList = [background, fishManager, bubbleManager]
     screen = Screen(gameObjectsList)

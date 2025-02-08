@@ -30,7 +30,6 @@ class Screen():
 
         self.xOffset = self.windowWidth/2 - self.width/2
         self.yOffset = self.windowHeight/2 - self.height/2
-        print((self.windowWidth, self.width), (self.windowHeight, self.height))
 
     def draw(self):
         layer = pygame.Surface(self.canvasDimensions)
