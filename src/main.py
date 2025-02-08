@@ -54,7 +54,6 @@ def main():
 
 
     while True:
-        print('root', SpriteSurface.rootPath)
         GameObject.deltaTime = clock.tick()
         screen.updateCoords()
         gameObjectsList += [background, mode, title]
