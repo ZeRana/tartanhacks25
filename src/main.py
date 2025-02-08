@@ -10,6 +10,8 @@ from objects.GameObject import GameObject, SpriteSurface
 from objects.Background import Background
 from objects.Fish import Fish
 from objects.FishManager import FishManager
+from objects.Bubble import Bubble
+from objects.BubbleManager import BubbleManager
 
 pygame.init()
 
@@ -42,16 +44,19 @@ def main():
     clock = pygame.time.Clock()
     handler = EventHandler()
 
-    background = Background(SpriteSurface("src/backgrounds/background.png"))
-    fishImage = SpriteSurface("src/fish/clownfish.png", scale = 1)
-    fishImage1 = SpriteSurface("src/fish/yellowseahorse.png", scale = 1)
+    background = Background(SpriteSurface("backgrounds/background.png"))
+    fishImage = SpriteSurface("fish/clownfish.png", scale = 1)
+    fishImage1 = SpriteSurface("fish/yellowseahorse.png", scale = 1)
+    bubbleImage = SpriteSurface("bubble.png", scale=1)
+    bubbleManager = BubbleManager()
     fishManager = FishManager()
-
+    for i in range(10):
+        bubbleManager.bubbles.append(Bubble(bubbleImage))
     for i in range(200):
         fishManager.fishList.append(Fish(fishImage))
         fishManager.fishList.append(Fish(fishImage1))
 
-    gameObjectsList = [background, fishManager]
+    gameObjectsList = [background, fishManager, bubbleManager]
     screen = Screen(gameObjectsList)
 
     while True:
@@ -63,6 +68,7 @@ def main():
 
         # actions here:
         fishManager.moveFish()
+        bubbleManager.moveBubbles()
 
         # draw to screen
         screen.draw()
