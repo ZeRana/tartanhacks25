@@ -30,7 +30,7 @@ class Sfx(GameObject):
 
         self.soundDict = dict()
         self.soundDict = dict()
-        self.soundDict['bubble'] = 'music/bubble-sound-43207.mp3' 
+        self.soundDict['bubble'] = 'music/BubbleSFX.mp3' 
 
     def playAudio(self, sfxName):
         sfx = self.soundDict.get(sfxName)
