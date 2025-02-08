@@ -45,7 +45,7 @@ def main():
     handler = EventHandler()
     SpriteSurface.rootPath = os.path.dirname(__file__)
 
-    background = Background(SpriteSurface("backgrounds/background.png"))
+    background = Background(SpriteSurface("backgrounds/newbackground.png"))
     fishImage = SpriteSurface("fish/clownfish.png", scale = 1)
     fishImage1 = SpriteSurface("fish/yellowseahorse.png", scale = 1)
 
