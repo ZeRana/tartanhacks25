@@ -13,9 +13,6 @@ class Fish(GameObject):
     def interacted(self, event):
         print(event)
 
-    def isClicked(self, x, y):
-        super().isClicked(x, y)
-
     def move(self):
         x, y = self.getPosition()
         xOffset = random.random() * (1 if self.facingRight else -1)

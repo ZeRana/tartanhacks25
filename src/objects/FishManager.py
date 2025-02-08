@@ -11,6 +11,9 @@ class FishManager(GameObject):
         for fish in self.fishList:
             fish.isClicked(x, y)
 
+    def interacted(self, keys):
+        print(keys)
+
     def moveFish(self):
         for fish in self.fishList:
             fish.move()
@@ -18,7 +21,3 @@ class FishManager(GameObject):
     def draw(self, screen):
         for fish in self.fishList:
             fish.draw(screen)
-
-    def deltaUpdate(self, dt):
-        for fish in self.fishList:
-            fish.deltaUpdate(dt)

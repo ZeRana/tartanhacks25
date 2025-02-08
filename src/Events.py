@@ -3,18 +3,15 @@ import sys
 from pygame.locals import *
 
 class EventHandler:
-
-    def __init__(self):
-        pass
-    # Anything that happens after a key is pressed should go in this function
     def handleKeyPress(self, gameObjectsList):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_q]:
                 pygame.quit()
                 sys.exit()
-        print(keys)
+
+        keysList = getKeysPressed(keys)
         for obj in gameObjectsList:
-            obj.interact(keys)
+            obj.interacted(keysList)
 
     def systemEvents(self, screen, gameObjectsList):
         for event in pygame.event.get():
@@ -30,7 +27,14 @@ class EventHandler:
                 case pygame.KEYDOWN:
                     self.handleKeyPress(gameObjectsList)
 
-
+def getKeysPressed(keys):
+    keysList = set()
+    if keys[pygame.K_w]: keysList.add('w')
+    if keys[pygame.K_e]: keysList.add('e')
+    if keys[pygame.K_r]: keysList.add('r')
+    if keys[pygame.K_t]: keysList.add('t')
+    if keys[pygame.K_y]: keysList.add('y')
+    return keysList
 
 def pixelsToCoords(screen, x, y):
     return ((x - screen.xOffset)/screen.scaleVal * 1000, 

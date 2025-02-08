@@ -6,12 +6,10 @@ from pygame import Surface
 class GameObject(Sprite):
     deltaTime = 1
     def __init__(self, surface):
-        super().__init__();
-
+        super().__init__()
         self.surface = surface
         self.x = 0
         self.y = 0
-
         self.onScreen = False
 
     def isClicked(self, x, y):
@@ -44,7 +42,11 @@ class GameObject(Sprite):
         self.x = self.x + (x - self.x) * self.deltaTime
         self.y = self.y + (y - self.y) * self.deltaTime
 
+    def checkOnScreen(self):
+        pass
+
 class SpriteSurface(Surface):
+    rootPath = None
     def __init__(self, spriteVal, scale = 1,
                  width = 30, height = 30, color = (255, 255, 255),
                  imgDir = None, **kwargs):
@@ -63,6 +65,8 @@ class SpriteSurface(Surface):
                 filepath = os.path.join(imgDir, spriteVal)
             elif os.path.isfile(spriteVal):
                 filepath = spriteVal
+            elif os.path.isfile(os.path.join(self.rootPath, spriteVal)):
+                filepath = os.path.join(self.rootPath, spriteVal)
 
             if filepath is None or not os.path.isfile(filepath):
                 raise FileNotFoundError(f'{spriteVal} file not found')
