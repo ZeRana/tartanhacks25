@@ -52,7 +52,7 @@ class SpriteSurface(Surface):
             elif os.path.isfile(os.path.join(rootPath, spriteVal)):
                 filepath = os.path.join(rootPath, spriteVal)
 
-            if filePath is None or not os.path.isfile(filepath):
+            if filepath is None or not os.path.isfile(filepath):
                 raise FileNotFoundError(f'{spriteVal} file not found')
 
             spriteVal = pygame.image.load(filepath)

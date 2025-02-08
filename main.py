@@ -1,5 +1,7 @@
 import pygame
 import sys
+import Events
+import GameObject
 from pygame.locals import *
 from pygame import mixer
 
@@ -8,9 +10,9 @@ from pygame import mixer
 
 pygame.init()
 
-width = 400
+width = 1000
 """Screen width."""
-height = 400
+height = 1000
 """Screen height."""
 
 display = pygame.display.set_mode((width, height))
@@ -21,7 +23,7 @@ def quit_game():
             pygame.quit()
             sys.exit()
 ######AUDIO 
-mixer.music.load(audio_file)
+#mixer.music.load(audio_file)
 mixer.music.set_volume(0.5)
 
 def playMusic(audio_file):
@@ -40,17 +42,16 @@ def soundEffect(audio_file):
     sound_fx = pygame.mixer.Sound(audioFile)
     sound_fx.play()
 
-while True:
-    pygame.display.update()
-    quit_game()
 
-pygame.quit()
-sys.exit()
 
 handler = Events.EventHandler()
-
+background = GameObject.SpriteSurface("background.png")
+fishImage = GameObject.SpriteSurface("clownfish.png")
+fish = GameObject.GameObject(fishImage)
 def main():
     while True:
+        display.blit(background, (0,0))
+        fish.draw(screen= display)
         handler.systemEvents()
         pygame.display.update()
 
