@@ -1,7 +1,6 @@
 from objects.GameObject import GameObject
 import pygame.mixer as mixer
 
-
 class Music(GameObject):
 
     def __init__(self):
@@ -22,10 +21,14 @@ class Music(GameObject):
     def draw(self, surface):
         pass
 
+    def isClicked(self, x, y):
+        pass
+
 class Sfx(GameObject):
     def __init__(self):
         mixer.music.set_volume(0.7)
 
+        self.soundDict = dict()
         self.soundDict = dict()
         self.soundDict['bubble'] = 'music/bubble-sound-43207.mp3' 
 

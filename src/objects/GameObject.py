@@ -5,6 +5,7 @@ from pygame import Surface
 
 class GameObject(Sprite):
     deltaTime = 1
+    shared = set()
     def __init__(self, surface):
         super().__init__()
         self.surface = surface
@@ -61,6 +62,7 @@ class SpriteSurface(Surface):
                 return
 
             filepath = None
+            print(spriteVal, self.rootPath)
             if imgDir:
                 filepath = os.path.join(imgDir, spriteVal)
             elif os.path.isfile(spriteVal):
