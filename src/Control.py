@@ -18,6 +18,7 @@ class Control():
             self.fishManager.newFish()
             self.fishManager.newSeaHorse()
             self.fishManager.newTurtle()
+        self.fishManager.newWhale()
 
     def load(self):
         if self.mode.currentMode == 'idle':
