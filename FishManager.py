@@ -15,3 +15,7 @@ class FishManager:
     def drawFish(self, screen):
         for fish in self.fishList:
             fish.draw(screen)
+
+    def setFishDeltaX(self, newDeltaX):
+        for fish in self.fishList:
+            fish.deltaX = newDeltaX
