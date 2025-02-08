@@ -2,7 +2,6 @@ import os
 import pygame
 from pygame.sprite import Sprite
 from pygame import Surface
-rootPath = os.getenv('GAMEPATH')
 
 class GameObject(Sprite):
     def __init__(self, surface):
@@ -17,13 +16,22 @@ class GameObject(Sprite):
 
     def isClicked(self, x, y):
         if self.surface.isRect: 
-            return (self.x <= x <= self.x + self.surface.width and
-                    self.y <= y <= self.y + self.surface.height)
-        else:
-           obj_mask = pygame.mask.from_surface(self.surface)
-           return obj_mask.get_at((x - self.x, y - self.y)) == 1
+            if (self.x <= x <= self.x + self.surface.width and
+                self.y <= y <= self.y + self.surface.height):
+                self.interacted('click')
+                return
+
+        obj_mask = pygame.mask.from_surface(self.surface)
+        self_mask = pygame.mask.from_surface(Surface((1, 1)))
+        if obj_mask.overlap(self_mask, (self.x - x, self.y - y)):
+           self.interacted('click')
+           print('click')
+           return
                
-    def interact(self, **kwargs):
+    def interacted(self, event):
+        pass
+
+    def action(self):
         pass
 
     def draw(self, screen):
@@ -48,13 +56,10 @@ class SpriteSurface(Surface):
                 return
 
             filepath = None
-            print(spriteVal, rootPath)
             if imgDir:
                 filepath = os.path.join(imgDir, spriteVal)
             elif os.path.isfile(spriteVal):
                 filepath = spriteVal
-            elif os.path.isfile(os.path.join(rootPath, spriteVal)):
-                filepath = os.path.join(rootPath, spriteVal)
 
             if filepath is None or not os.path.isfile(filepath):
                 raise FileNotFoundError(f'{spriteVal} file not found')
@@ -70,4 +75,7 @@ class SpriteSurface(Surface):
 
         super().__init__((self.width, self.height), pygame.SRCALPHA)
         self.blit(spriteVal, (0, 0))
-        self.isRect = False
+#        self.isRect = False
+
+    def __repr__(self):
+        return 'SpriteSurface'
