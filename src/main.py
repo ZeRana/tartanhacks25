@@ -8,7 +8,7 @@ from Events import EventHandler
 from Screen import Screen
 from Control import Control, Mode
 from objects.GameObject import GameObject, SpriteSurface
-from objects.Background import Background
+from objects.Background import Background, Title
 
 from objects.Fish import Fish
 from objects.FishManager import FishManager
@@ -42,12 +42,12 @@ def main():
     SpriteSurface.rootPath = os.path.dirname(__file__)
 
     background = Background(SpriteSurface("backgrounds/newbackground.png"))
-
+    title = Title(SpriteSurface('fish/TITLE SCREEN FISH (1).png'))
 
     while True:
         GameObject.deltaTime = clock.tick()
         screen.updateCoords()
-        gameObjectsList += [background, mode]
+        gameObjectsList += [background, mode, title]
         control.load()
 
         # events
