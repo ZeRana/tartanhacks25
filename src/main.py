@@ -41,9 +41,9 @@ def soundEffect(audio_file):
 def main():
     handler = EventHandler()
 
-    background = Background(SpriteSurface("backgrounds/background.png"))
-    fishImage = SpriteSurface("fish/clownfish.png", scale = 1)
-    fishImage1 = SpriteSurface("fish/yellowseahorse.png", scale = 1)
+    background = Background(SpriteSurface("src/backgrounds/background.png"))
+    fishImage = SpriteSurface("src/fish/clownfish.png", scale = 1)
+    fishImage1 = SpriteSurface("src/fish/yellowseahorse.png", scale = 1)
     fishManager = FishManager()
 
     for i in range(5):
