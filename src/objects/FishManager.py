@@ -3,7 +3,6 @@ from objects.GameObject import GameObject
 import objects.Fish
 
 class FishManager(GameObject):
-
     def __init__(self):
         self.fishList = []
     
