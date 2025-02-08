@@ -34,6 +34,8 @@ def getKeysPressed(keys):
     if keys[pygame.K_r]: keysList.add('r')
     if keys[pygame.K_t]: keysList.add('t')
     if keys[pygame.K_y]: keysList.add('y')
+    if keys[pygame.K_p]: keysList.add('p')
+
     return keysList
 
 def pixelsToCoords(screen, x, y):
