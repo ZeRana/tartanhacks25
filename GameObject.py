@@ -24,7 +24,7 @@ class GameObject(Sprite):
         pass
 
     def draw(self, screen):
-        screen.blitz(self.surface, (self.x, self.y))
+        screen.blit(self.surface, (self.x, self.y))
 
     def setPosition(self, x, y):
         self.x = x
