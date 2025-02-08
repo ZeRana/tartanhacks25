@@ -32,11 +32,11 @@ class Screen():
         self.yOffset = self.windowHeight/2 - self.height/2
 
     def draw(self):
-        base = pygame.Surface((self.windowWidth, self.windowHeight)
+        base = pygame.Surface((self.windowWidth, self.windowHeight))
         layer = pygame.Surface(self.canvasDimensions)
         for obj in self.gameObjectsList:
             obj.draw(layer)
        
         base.blit(pygame.transform.scale(layer, (self.width, self.height)),
                                         (self.xOffset, self.yOffset))
-        self.display.blit(base)
+        self.display.blit(base, (0, 0))
