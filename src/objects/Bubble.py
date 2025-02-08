@@ -10,14 +10,16 @@ class Bubble(GameObject):
         self.y = 900
         self.x = random.randint(0, 1600)
 
+        self.speed = random.uniform(.1, .5)
+
     def move(self):
-        self.y -= random.random()/10 * self.deltaTime
-        if self.y <= 0:
-            self.resetPos()
+        self.y -= self.speed * self.deltaTime
+        self.resetPos()
 
     def resetPos(self):
         self.y = 900
         self.x = random.randint(0, 1600)
+        self.speed = self.speed = random.uniform(.1, .8)
 
     def interacted(self, event):
         if event == 'click':

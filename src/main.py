@@ -46,7 +46,6 @@ def main():
     SpriteSurface.rootPath = os.path.dirname(__file__)
 
     background = Background(SpriteSurface("backgrounds/newbackground.png"))
-    fishImage = SpriteSurface("fish/clownfish.png", scale = 1)
     fishImage1 = SpriteSurface("fish/yellowseahorse.png", scale = 1)
 
     bubbleImage = SpriteSurface("bubble.png", scale=1)
@@ -54,9 +53,10 @@ def main():
     fishManager = FishManager()
     for i in range(10):
         bubbleManager.bubbles.append(Bubble(bubbleImage))
-    for i in range(200):
-        fishManager.fishList.append(Fish(fishImage))
-#        fishManager.fishList.append(Fish(fishImage1))
+    for i in range(5):
+        fishManager.newFish()
+        fishManager.newSeaHorse()
+        fishManager.newTurtle()
 
     gameObjectsList = [background, fishManager, bubbleManager]
     screen = Screen(gameObjectsList)
