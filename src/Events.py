@@ -39,5 +39,5 @@ def getKeysPressed(keys):
     return keysList
 
 def pixelsToCoords(screen, x, y):
-    return ((x - screen.xOffset)/screen.scaleVal * 1000, 
-            (y - screen.yOffset)/screen.scaleVal * 1000)
+    return ((x - screen.xOffset)/screen.scaleVal, 
+            (y - screen.yOffset)/screen.scaleVal)
