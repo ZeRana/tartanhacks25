@@ -1,6 +1,7 @@
 import pygame
 import sys
 from pygame.locals import *
+import Events
 
 # Snake case --> pygame builtin
 # Camel case --> our functions
@@ -13,17 +14,11 @@ height = 400
 """Screen height."""
 
 display = pygame.display.set_mode((width, height))
+handler = Events.EventHandler()
 
-def quit_game():
-    for event in pygame.event.get():
-        if event.type==QUIT:
-            pygame.quit()
-            sys.exit()
 
 while True:
+    handler.systemEvents()
     pygame.display.update()
-    quit_game()
 
-pygame.quit()
-sys.exit()
 
