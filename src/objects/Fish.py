@@ -6,7 +6,7 @@ class Fish(GameObject):
     def __init__(self, surface):
         super().__init__(surface)
         self.value = 0
-        self.y = random.randint(0, 900)
+        self.y = random.randint(20, 880)
 
         self.facingRight = True
         self.speed = random.uniform(.05, .3)
