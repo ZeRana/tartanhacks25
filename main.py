@@ -47,5 +47,15 @@ while True:
 pygame.quit()
 sys.exit()
 
+handler = Events.EventHandler()
+
+def main():
+    while True:
+        handler.systemEvents()
+        pygame.display.update()
+
+
+if __name__ == "__main__":
+    main()
 
 
