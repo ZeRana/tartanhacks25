@@ -6,8 +6,10 @@ from pygame import mixer
 
 from Events import EventHandler
 from Screen import Screen
+from Control import Control, Mode
 from objects.GameObject import GameObject, SpriteSurface
 from objects.Background import Background
+
 from objects.Fish import Fish
 from objects.FishManager import FishManager
 from objects.Bubble import Bubble
@@ -42,39 +44,35 @@ def soundEffect(audio_file):
 
 def main():
     clock = pygame.time.Clock()
+    gameObjectsList = []
+
     handler = EventHandler()
+    mode = Mode()
+    control = Control(mode, gameObjectsList)
+    screen = Screen(gameObjectsList)
+
     SpriteSurface.rootPath = os.path.dirname(__file__)
 
     background = Background(SpriteSurface("backgrounds/newbackground.png"))
-    fishImage1 = SpriteSurface("fish/yellowseahorse.png", scale = 1)
 
-    bubbleImage = SpriteSurface("bubble.png", scale=1)
-    bubbleManager = BubbleManager()
-    fishManager = FishManager()
-    for i in range(10):
-        bubbleManager.bubbles.append(Bubble(bubbleImage))
-    for i in range(5):
-        fishManager.newFish()
-        fishManager.newSeaHorse()
-        fishManager.newTurtle()
-
-    gameObjectsList = [background, fishManager, bubbleManager]
-    screen = Screen(gameObjectsList)
 
     while True:
         GameObject.deltaTime = clock.tick()
         screen.updateCoords()
+        gameObjectsList += [background, mode]
+        control.load()
 
         # events
         handler.systemEvents(screen, gameObjectsList)
 
         # actions here:
-        fishManager.moveFish()
-        bubbleManager.moveBubbles()
-
+        control.loop()
+        
         # draw to screen
         screen.draw()
         pygame.display.update()
+
+        gameObjectsList.clear()
 
 if __name__ == "__main__":
     main()

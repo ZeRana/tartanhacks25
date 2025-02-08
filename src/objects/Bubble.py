@@ -14,7 +14,8 @@ class Bubble(GameObject):
 
     def move(self):
         self.y -= self.speed * self.deltaTime
-        self.resetPos()
+        if self.y <= 0:
+            self.resetPos()
 
     def resetPos(self):
         self.y = 900

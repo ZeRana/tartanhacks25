@@ -16,5 +16,6 @@ class BubbleManager(GameObject):
     def isClicked(self, x, y):
         for bubble in self.bubbles:
             bubble.isClicked(x, y)
-
     
+    def __repr__(self):
+        return 'bubblemanager'
