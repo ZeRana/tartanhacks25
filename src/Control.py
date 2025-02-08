@@ -69,7 +69,7 @@ class Mode(GameObject):
         if 'm' in event:
             self.modeIndex = (self.modeIndex + 1) % 3
             self.currentMode = self.modes[self.modeIndex]
-            print(self.currentMode)
+
 
     def isClicked(self, x, y):
         pass

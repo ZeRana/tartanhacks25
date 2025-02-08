@@ -25,7 +25,7 @@ class FishManager(GameObject):
     def newFish(self):
         self.fishList.append(Fish(SpriteSurface(random.choice(["fish/clownfish.png", "fish/doryfish.png", "fish/pufferfish.png", "fish/bluefish.png"]), 
                                                                scale = random.uniform(2, 5))))
-        print(self.fishList)
+        
     
 
     def newSeaHorse(self):

@@ -12,7 +12,7 @@ class Fish(GameObject):
         self.speed = random.uniform(.05, .3)
 
     def interacted(self, event):
-        print(event)
+        pass
 
     def move(self):
         x, y = self.getPosition()

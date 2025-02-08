@@ -24,7 +24,7 @@ class GameObject(Sprite):
         self_mask = pygame.mask.from_surface(Surface((1, 1)))
         if obj_mask.overlap(self_mask, (self.x - x, self.y - y)):
            self.interacted('click')
-           print('click')
+           
            return
                
     def interacted(self, event):
@@ -62,7 +62,7 @@ class SpriteSurface(Surface):
                 return
 
             filepath = None
-            print(spriteVal, self.rootPath)
+           
             if imgDir:
                 filepath = os.path.join(imgDir, spriteVal)
             elif os.path.isfile(spriteVal):
