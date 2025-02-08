@@ -7,6 +7,11 @@ class FishManager:
         self.fishList = []
 
 
-    def drawFish(self):
+    def moveFish(self):
         for fish in self.fishList:
-            fish.draw()
+            fish.move()
+
+
+    def drawFish(self, screen):
+        for fish in self.fishList:
+            fish.draw(screen)

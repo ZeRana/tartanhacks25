@@ -1,7 +1,9 @@
 import pygame
 import sys
 import Events
-import GameObject
+from GameObject import GameObject, SpriteSurface
+import Fish
+import FishManager
 from pygame.locals import *
 from pygame import mixer
 
@@ -45,13 +47,19 @@ def soundEffect(audio_file):
 
 
 handler = Events.EventHandler()
-background = GameObject.SpriteSurface("background.png")
-fishImage = GameObject.SpriteSurface("clownfish.png")
-fish = GameObject.GameObject(fishImage)
+background = SpriteSurface("background.png")
+fishImage = SpriteSurface("clownfish.png")
+fish = Fish.Fish(fishImage)
+fish1 = Fish.Fish(fishImage)
+fishManager = FishManager.FishManager()
+fishManager.fishList.append(fish)
+fishManager.fishList.append(fish1)
+
 def main():
     while True:
         display.blit(background, (0,0))
-        fish.draw(screen= display)
+        fishManager.moveFish()
+        fishManager.drawFish(display)
         handler.systemEvents()
         pygame.display.update()
 
