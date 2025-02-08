@@ -11,6 +11,7 @@ class GameObject(Sprite):
         self.surface = surface
         self.x = 0
         self.y = 0
+        self.deltaX = 1
 
     def isClicked(self, x, y):
         if self.surface.isRect: 

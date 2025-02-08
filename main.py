@@ -54,6 +54,7 @@ fish1 = Fish.Fish(fishImage)
 fishManager = FishManager.FishManager()
 fishManager.fishList.append(fish)
 fishManager.fishList.append(fish1)
+fishManager.setFishDeltaX(.2)
 
 def main():
     while True:
