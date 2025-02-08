@@ -1,23 +1,26 @@
-import pygame
+import os
 import sys
+import pyautogui
+import pygame
+from pygame.locals import *
+from pygame import mixer
+
 import Events
 from GameObject import GameObject, SpriteSurface
 import Fish
 import FishManager
-from pygame.locals import *
-from pygame import mixer
+
+os.environ['GAMEPATH'] = os.path.dirname(__file__)
 
 # Snake case --> pygame builtin
 # Camel case --> our functions
 
 pygame.init()
 
-width = 1000
-"""Screen width."""
-height = 1000
-"""Screen height."""
-
-display = pygame.display.set_mode((width, height))
+width, height = pyautogui.size()
+width = round(width * 3/4)
+height = round(height * 3/4)
+display = pygame.display.set_mode((width, height), pygame.RESIZABLE)
 
 def quit_game():
     for event in pygame.event.get():
@@ -48,7 +51,7 @@ def soundEffect(audio_file):
 
 handler = Events.EventHandler()
 background = SpriteSurface("background.png")
-fishImage = SpriteSurface("clownfish.png")
+fishImage = SpriteSurface("fish/clownfish.png")
 fish = Fish.Fish(fishImage)
 fish1 = Fish.Fish(fishImage)
 fishManager = FishManager.FishManager()
@@ -62,7 +65,6 @@ def main():
         fishManager.drawFish(display)
         handler.systemEvents()
         pygame.display.update()
-
 
 if __name__ == "__main__":
     main()

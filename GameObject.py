@@ -12,6 +12,8 @@ class GameObject(Sprite):
         self.x = 0
         self.y = 0
 
+        self.onScreen = False
+
     def isClicked(self, x, y):
         if self.surface.isRect: 
             return (self.x <= x <= self.x + self.surface.width and
@@ -45,6 +47,7 @@ class SpriteSurface(Surface):
                 return
 
             filepath = None
+            print(spriteVal, rootPath)
             if imgDir:
                 filepath = os.path.join(imgDir, spriteVal)
             elif os.path.isfile(spriteVal):
@@ -56,10 +59,11 @@ class SpriteSurface(Surface):
                 raise FileNotFoundError(f'{spriteVal} file not found')
 
             spriteVal = pygame.image.load(filepath)
+
         elif not isinstance(spriteVal, Surface):
             raise Exception(f'invalid surface {spriteVal}')
 
         self.width, self.height = spriteVal.get_size()
-        super().__init__((self.width, self.height))
+        super().__init__((self.width, self.height), pygame.SRCALPHA)
         self.blit(spriteVal, (0, 0))
         self.isRect = False
