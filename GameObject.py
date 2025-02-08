@@ -34,7 +34,7 @@ class GameObject(Sprite):
         self.y = y
         
 class SpriteSurface(Surface):
-    def __init__(self, spriteVal,
+    def __init__(self, spriteVal, scale = 1,
                  width = 30, height = 30, color = (255, 255, 255),
                  imgDir = None, **kwargs):
         self.width = width
@@ -64,7 +64,10 @@ class SpriteSurface(Surface):
         elif not isinstance(spriteVal, Surface):
             raise Exception(f'invalid surface {spriteVal}')
 
+        width, height = spriteVal.get_size()
+        spriteVal = pygame.transform.scale(spriteVal, (width * scale, height * scale))
         self.width, self.height = spriteVal.get_size()
+
         super().__init__((self.width, self.height), pygame.SRCALPHA)
         self.blit(spriteVal, (0, 0))
         self.isRect = False

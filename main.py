@@ -52,6 +52,14 @@ fishManager = FishManager.FishManager()
 fishManager.fishList.append(fish)
 fishManager.fishList.append(fish1)
 fishManager.setFishDeltaX(90)
+=======
+background = SpriteSurface("background.png")
+fishImage = SpriteSurface("clownfish.png")
+fishManager = FishManager.FishManager()
+for i in range(502):
+    fishManager.fishList.append(Fish.Fish(fishImage))
+fishManager.setFishDeltaX(5)
+>>>>>>> main
 
 def main():
     gameObjectList = [background, fishManager]
