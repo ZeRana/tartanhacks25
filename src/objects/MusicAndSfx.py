@@ -33,9 +33,7 @@ class Sfx(GameObject):
         self.soundDict['bubble'] = 'music/BubbleSFX.mp3' 
 
     def playAudio(self, sfxName):
-        sfx = self.soundDict.get(sfxName)
-        mixer.music.load(sfx)
-        mixer.music.play(sfx)
+        pass
 
     
         
