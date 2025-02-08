@@ -27,19 +27,21 @@ def quit_game():
 def main():
     clock = pygame.time.Clock()
     gameObjectsList = []
+    SpriteSurface.rootPath = os.path.dirname(__file__)
 
     handler = EventHandler()
     mode = Mode()
     control = Control(mode, gameObjectsList)
     screen = Screen(gameObjectsList)
+    
 
-    SpriteSurface.rootPath = os.path.dirname(__file__)
 
     background = Background(SpriteSurface("backgrounds/newbackground.png"))
     music = Music()
 
 
     while True:
+        print('root', SpriteSurface.rootPath)
         GameObject.deltaTime = clock.tick()
         screen.updateCoords()
         gameObjectsList += [background, mode, music]

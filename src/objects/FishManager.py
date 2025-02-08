@@ -23,7 +23,8 @@ class FishManager(GameObject):
             fish.draw(screen)
 
     def newFish(self):
-        self.fishList.append(Fish(SpriteSurface("fish/clownfish.png", scale = random.uniform(.9, 1.5))))
+        self.fishList.append(Fish(SpriteSurface(random.choice(["fish/clownfish.png", "fish/doryfish.png", "fish/pufferfish.png", "fish/bluefish.png"]), 
+                                                               scale = random.uniform(2, 5))))
         print(self.fishList)
     
 
@@ -34,5 +35,7 @@ class FishManager(GameObject):
     def newTurtle(self):
         self.fishList.append(Fish(SpriteSurface("fish/turtle.png", scale= random.uniform(1, 2))))
 
+    def newWhale(self):
+        self.fishList.append(Fish(SpriteSurface("fish/whale.png", scale = random.uniform(7, 10))))
     def __repr__(self):
         return 'bubblemanager'

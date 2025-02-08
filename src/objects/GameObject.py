@@ -62,6 +62,7 @@ class SpriteSurface(Surface):
                 return
 
             filepath = None
+            print(spriteVal, self.rootPath)
             if imgDir:
                 filepath = os.path.join(imgDir, spriteVal)
             elif os.path.isfile(spriteVal):
