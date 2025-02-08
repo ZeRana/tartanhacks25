@@ -39,6 +39,7 @@ def soundEffect(audio_file):
     sound_fx.play()
 
 def main():
+    clock = pygame.time.Clock()
     handler = EventHandler()
 
     background = Background(SpriteSurface("backgrounds/background.png"))
@@ -46,14 +47,15 @@ def main():
     fishImage1 = SpriteSurface("fish/yellowseahorse.png", scale = 1)
     fishManager = FishManager()
 
-    for i in range(5):
+    for i in range(200):
         fishManager.fishList.append(Fish(fishImage))
         fishManager.fishList.append(Fish(fishImage1))
-    fishManager.setFishDeltaX(5)
 
     gameObjectsList = [background, fishManager]
     screen = Screen(gameObjectsList)
+
     while True:
+        GameObject.deltaTime = clock.tick()
         screen.updateCoords()
 
         # events

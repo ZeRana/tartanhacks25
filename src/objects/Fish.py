@@ -3,7 +3,6 @@ import random
 from objects.GameObject import GameObject, SpriteSurface
 
 class Fish(GameObject):
-
     def __init__(self, surface):
         super().__init__(surface)
         self.value = 0
@@ -18,13 +17,14 @@ class Fish(GameObject):
         super().isClicked(x, y)
 
     def move(self):
-        self.x += (random.random() * self.deltaX)
+        x, y = self.getPosition()
+        xOffset = random.random() * (1 if self.facingRight else -1)
+        self.setPosition(x + xOffset, y)
         self.turnAround()
 
     def turnAround(self):
         if (self.facingRight and self.x >= 975) or (not self.facingRight and self.x <= 15):
             self.facingRight = not self.facingRight
-            self.deltaX *= -1
             self.surface = SpriteSurface(pygame.transform.flip(self.surface, True, False))
 
     def __repr__(self):

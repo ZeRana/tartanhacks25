@@ -4,13 +4,13 @@ from pygame.sprite import Sprite
 from pygame import Surface
 
 class GameObject(Sprite):
+    deltaTime = 1
     def __init__(self, surface):
         super().__init__();
 
         self.surface = surface
         self.x = 0
         self.y = 0
-        self.deltaX = 1
 
         self.onScreen = False
 
@@ -36,11 +36,14 @@ class GameObject(Sprite):
 
     def draw(self, screen):
         screen.blit(self.surface, (self.x, self.y))
+    
+    def getPosition(self):
+        return self.x, self.y
 
     def setPosition(self, x, y):
-        self.x = x
-        self.y = y
-        
+        self.x = self.x + (x - self.x) * self.deltaTime
+        self.y = self.y + (y - self.y) * self.deltaTime
+
 class SpriteSurface(Surface):
     def __init__(self, spriteVal, scale = 1,
                  width = 30, height = 30, color = (255, 255, 255),

@@ -12,6 +12,9 @@ class EventHandler:
         if keys[pygame.K_q]:
                 pygame.quit()
                 sys.exit()
+        print(keys)
+        for obj in gameObjectsList:
+            obj.interact(keys)
 
     def systemEvents(self, screen, gameObjectsList):
         for event in pygame.event.get():
@@ -27,9 +30,8 @@ class EventHandler:
                 case pygame.KEYDOWN:
                     self.handleKeyPress(gameObjectsList)
 
-def pixelsToCoords(screen, x, y):
-    #    print((x - screen.xOffset)/screen.scaleVal * 1000, 
-    #      (y - screen.yOffset)/screen.scaleVal * 1000)
 
+
+def pixelsToCoords(screen, x, y):
     return ((x - screen.xOffset)/screen.scaleVal * 1000, 
             (y - screen.yOffset)/screen.scaleVal * 1000)

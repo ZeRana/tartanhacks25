@@ -19,6 +19,6 @@ class FishManager(GameObject):
         for fish in self.fishList:
             fish.draw(screen)
 
-    def setFishDeltaX(self, newDeltaX):
+    def deltaUpdate(self, dt):
         for fish in self.fishList:
-            fish.deltaX = newDeltaX
+            fish.deltaUpdate(dt)
